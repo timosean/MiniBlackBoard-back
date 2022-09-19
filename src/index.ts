@@ -1,17 +1,21 @@
+import 'dotenv/config';
 import express from 'express';
 import helmet from 'helmet';
 import http from 'http';
 import cookieParser from 'cookie-parser';
 import router from './routes';
 import mongoose from 'mongoose';
-import './env';
 
 //mongoDB setup
 async function mongoInitialize() {
   //connect mongodb
-  const mongoHost = `mongodb+srv://timosean:${process.env.MONGO_PW}@cluster0.1aoaj.mongodb.net/MiniBlackBoard?retryWrites=true&w=majority`;
+  const mongoHost = process.env.MONGO_URI;
 
-  await mongoose.connect(mongoHost);
+  if (mongoHost) {
+    await mongoose.connect(mongoHost);
+  } else {
+    console.error('mongo does not exist');
+  }
 
   console.log('Mongo Connected!');
 }
