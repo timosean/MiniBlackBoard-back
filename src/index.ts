@@ -3,6 +3,12 @@ import helmet from 'helmet';
 import http from 'http';
 import cookieParser from 'cookie-parser';
 import router from './routes';
+import mongoose from 'mongoose';
+
+//mongoDB setup
+async function initialize() {
+  //connect mongodb
+}
 
 //create app of express
 function expressLoader() {
