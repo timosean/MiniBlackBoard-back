@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { User, UserSignUp, Identity } from '../interfaces/user';
 
 const userSchema = new mongoose.Schema<User>({
-  courseList: { required: false, type: [String] },
+  courseList: [{ required: false, type: String }],
 });
 
 const schema = new mongoose.Schema<UserSignUp>({
@@ -19,3 +19,4 @@ const schema = new mongoose.Schema<UserSignUp>({
 });
 
 const UserModel = mongoose.model<UserSignUp>('User', schema);
+export default UserModel;
