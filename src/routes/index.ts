@@ -7,4 +7,6 @@ router.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
+router.use('/course', CourseRouter);
+
 export default router;
