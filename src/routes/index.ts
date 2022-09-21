@@ -1,4 +1,5 @@
 import express from 'express';
+import CourseRouter from './course';
 
 const router = express.Router();
 
