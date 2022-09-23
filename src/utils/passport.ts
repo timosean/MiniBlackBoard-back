@@ -11,7 +11,7 @@ export const localStrategy = new LocalStrategy(
       // Logic Here
       const result = await AuthService.AuthenticateUser(userId, password);
       if (result) {
-        done(null, result);
+        return done(null, result);
       }
     } catch (err) {
       return done(err);
