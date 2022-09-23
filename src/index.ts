@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import router from './routes';
 import mongoose from 'mongoose';
 import passport from 'passport';
+import * as PassportUtils from './utils/passport';
 
 //mongoDB setup
 async function mongoInitialize() {
@@ -44,6 +45,7 @@ async function expressLoader() {
   //passport
   app.use(passport.initialize());
   app.use(passport.session());
+  passport.use(PassportUtils.localStrategy);
 
   return app;
 }
