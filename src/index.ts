@@ -5,6 +5,7 @@ import http from 'http';
 import cookieParser from 'cookie-parser';
 import router from './routes';
 import mongoose from 'mongoose';
+import passport from 'passport';
 
 //mongoDB setup
 async function mongoInitialize() {
@@ -39,6 +40,10 @@ async function expressLoader() {
   app.all('*', (_, res) => {
     res.status(404).json({ error: { message: 'URL Not Found' } });
   });
+
+  //passport
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   return app;
 }

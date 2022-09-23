@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface UserSignUp extends User {
-  name: String;
+  name: string;
   id: string;
   password: string;
   identity: Identity;
