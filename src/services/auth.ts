@@ -7,12 +7,12 @@ export const AuthenticateUser = async (userId: string, password: string) => {
 
   //해당 id를 사용하는 유저가 존재하지 않으면
   if (!user) {
-    return { data: undefined };
+    return undefined;
   }
 
   //id에 해당하는 유저가 존재하는데 비밀번호 불일치일 경우
   if (user.password && !(await PasswordUtil.verify(user.password, password))) {
-    return { data: undefined };
+    return undefined;
   }
 
   //이제는 인증 성공
